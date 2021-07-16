@@ -1,0 +1,12 @@
+﻿@model PagingList<QuickShop.CoreBusiness.Models.Product>
+@using ReflectionIT.Mvc.Paging
+
+<form action="@Url.Action("IndexPost", new { pageIndex=Model.PageIndex, quantity=ViewBag.quantity, searchString=""})" method="post">
+    <div class="input-group">
+        <div class="form-outline mr-1">
+            <input placeholder="Wyszukaj produkt..." type="text" id="searchString" name="searchString" class="form-control" value="@ViewBag.searchString" />
+        </div>
+        <button type="submit" class="fa fa-search btn btn-orange rounded-circle" src="~/icons/search.svg">
+        </button>
+    </div>
+</form>

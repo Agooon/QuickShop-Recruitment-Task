@@ -1,0 +1,217 @@
+﻿:root {
+    --orange: #f49221;
+    --orange-light: #f3a03f;
+    --orange-light-t: rgba(243, 160, 63, 0.50);
+    --cherry-light: #e61269;
+    --cherry-light-t: rgba(230, 18, 105, 0.50);
+    --cherry-middle: #9f1b54;
+    --cherry-middle-t: rgba(159, 27, 84, 0.50);
+    --cherry-dark: #841444;
+    --cherry-darkest: #5a0f2f;
+}
+
+.my-text-orange {
+    color: var(--orange);
+}
+
+.my-text-orange-light {
+    color: var(--orange-light);
+}
+
+.my-text-cherry-dark {
+    color: var(--cherry-dark);
+}
+
+/* Core styling */
+html {
+    font-size: 12px;
+    background: #eee;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 576px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    color: var(--cherry-dark);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background: var(--cherry-dark);
+    color: var(--orange);
+}
+
+
+/* Navigation*/
+.my-navbar {
+    background: var(--cherry-dark);
+}
+
+.my-navbrand {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 600;
+}
+
+    .my-navbrand:hover {
+        color: var(--orange-light);
+        text-decoration: none;
+    }
+
+    .my-navbrand span:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+/* Modal */
+.modal-body {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .modal-body {
+        font-size: 16px;
+    }
+}
+
+.my-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 992px) {
+    .my-modal-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+#productImage {
+    width: 100%;
+    border-radius: 8%;
+}
+
+
+/* Buttons */
+.my-btn-disabled {
+    background: #ccc;
+    color: #555;
+}
+
+    .my-btn-disabled:hover {
+        background: #ccc;
+        color: #555;
+    }
+
+.btn-orange {
+    background: var(--orange);
+    color: var(--white);
+}
+
+    .btn-orange:hover {
+        background: var(--orange-light);
+        color: var(--white);
+    }
+
+    .btn-orange:focus {
+        box-shadow: 0 0 0 0.2rem var( --orange-light-t);
+    }
+
+.btn-orange-paging {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.btn-orange:hover {
+    background: var(--orange-light);
+    color: var(--white);
+}
+
+/* Table */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background: var(--cherry-dark);
+    color: #fff;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: var(--cherry-middle);
+    color: #fff;
+}
+
+.my-thead {
+    background: var(--cherry-darkest);
+    color: #fff;
+}
+
+
+/* Search form */
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: var(--orange-light);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem var( --orange-light-t);
+}
+
+#searchString {
+    color: var(--cherry-dark);
+}
+
+/* Selecting page number */
+#pageIndex {
+    color: var(--cherry-dark);
+    border-radius: 10%;
+    border: 1px solid var(--cherry-dark);
+    width: 75%;
+    text-align: center;
+}
+
+input#pageIndex:focus {
+    box-shadow: 0 0 0 0.2rem var( --cherry-light-t);
+    outline: none;
+}
+
+/* Slecting number of products on page */
+#my-form-select {
+    color: var(--cherry-dark);
+    border-radius: 10%;
+    border: 1px solid var(--cherry-dark);
+    text-align: center;
+}
+
+    #my-form-select option:checked {
+        background-color: var(--cherry-middle);
+        color: #fff;
+    }
+
+/* Rest */
+.page-item {
+    margin: 0.2rem;
+}
+
+.my-center {
+    display: table;
+    margin: 0 auto;
+}
+
+.my-big-text {
+    font-size: 20px;
+}

@@ -1,0 +1,94 @@
+﻿@model ReflectionIT.Mvc.Paging.IPagingList
+
+@{
+    var currentIndex = this.Model.PageIndex;
+}
+
+<ul class="pagination pagination-sm col-4 col-sm-5">
+
+    @if (currentIndex > 1)
+    {
+        <li class="page-item">
+            <a href="@Url.Action(Model.Action, new { pageIndex=this.Model.PageIndex - 1, quantity=ViewBag.quantity, searchString = ViewBag.searchString})" class="btn btn-orange d-flex flex-column">
+                <span>Poprzednia</span>
+                <span>&#8592;</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item">
+            <div class="btn btn-orange my-btn-disabled disabled  d-flex flex-column">
+                <span>Poprzednia</span>
+                <span>&#8592;</span>
+            </div>
+        </li>
+    }
+    @if (currentIndex < this.Model.PageCount)
+    {
+        <li class="page-item">
+            <a href="@Url.Action(Model.Action, new { pageIndex=this.Model.PageIndex + 1, quantity=ViewBag.quantity, searchString = ViewBag.searchString})" class="btn btn-orange  d-flex flex-column">
+                <span>Następna</span>
+                <span>&#8594;</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item">
+            <div class="btn btn-orange my-btn-disabled disabled  d-flex flex-column">
+                <span>Następna</span>
+                <span>&#8594;</span>
+            </div>
+        </li>
+    }
+
+</ul>
+
+<form class="d-flex align-items-center flex-column col-sm-2 col-4" action="@Url.Action("IndexPost", new { pageIndex=1, quantity=ViewBag.quantity, searchString = ViewBag.searchString})" method="post">
+    <label for="pageIndex" class="text-center">Numer strony</label>
+    <input id="pageIndex" name="pageIndex" type="number" value="@currentIndex" />
+    <button class="btn btn-orange mt-2" type="submit">Przejdź</button>
+</form>
+
+<ul class="pagination pagination-sm justify-content-end col-4 col-sm-5">
+
+    @if (currentIndex > 1)
+    {
+        <li class="page-item">
+            <a href="@Url.Action(Model.Action, new { pageIndex=1, quantity=ViewBag.quantity, searchString = ViewBag.searchString})" class="btn btn-orange  d-flex flex-column">
+                <span>Pierwsza</span>
+                <span>&#8592;&#8592;</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item">
+            <span class="btn btn-orange my-btn-disabled disabled  d-flex flex-column">
+                <span>Pierwsza</span>
+                <span>&#8592;&#8592;</span>
+            </span>
+        </li>
+    }
+    @if (currentIndex < this.Model.PageCount)
+    {
+        <li class="page-item">
+            <a href="@Url.Action(Model.Action, new { pageIndex=this.Model.PageCount, quantity=ViewBag.quantity, searchString = ViewBag.searchString})" class="btn btn-orange  d-flex flex-column">
+                <span>Ostatnia</span>
+                <span>&#8594;&#8594;</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item">
+            <div class="btn btn-orange my-btn-disabled disabled  d-flex flex-column">
+                <span>Ostatnia</span>
+                <span>&#8594;&#8594;</span>
+            </div>
+        </li>
+    }
+
+</ul>
+

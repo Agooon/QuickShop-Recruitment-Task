@@ -1,0 +1,47 @@
+﻿@model QuickShop.CoreBusiness.Models.Product
+
+<div class="modal fade col-12" id="product-@Model.SKU">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="productLabel">@Model.Name</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="my-modal-content">
+                    @* Adding ?@Model.SKU is a trick to refresh photo *@
+                    <div class="col-md-12 col-lg-7 text-center">
+                        <img id="productImage" src="https://picsum.photos/500?@Model.SKU" class="col-md-12 my-rounded" />
+                    </div>
+                    <div class="col-md-12 col-lg-5">
+                        <div class="col-12 text-center">
+                            <b>Opis:</b><br />
+                        </div>
+                        <div class="text-justify">
+                            @Model.Description
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end align-items-end text-justify">
+                    <div class="big-text mr-2 font-weight-bold">
+                        Cena:
+                    </div>
+                    @if (Model.Discount <= 0)
+                    {
+                        <span class="bigText font-weight-bolder">@Model.Price.ToString("F") zł</span>
+                    }
+                    else
+                    {
+
+                        <div class="mr-2">
+                            <span class="text-success font-weight-bolder big-text"> Już za @((Model.Price* (decimal)(100- Model.Discount)/100).ToString("F")) zł!</span>
+                        </div>
+                        <del class="text-muted">@Model.Price.ToString("F")</del>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
